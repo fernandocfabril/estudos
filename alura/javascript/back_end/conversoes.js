@@ -25,3 +25,9 @@ console.log(numero + Number(numeroString))
 // quando se faz uma conversão de um conteúdo de uma variável string que contenha numeros e letras, o resultado é NaN (não é um número)
 numeroString = "456a"
 console.log(Number(numeroString))
+
+// conversão de um número para string, podemos usar duas funções
+// String() ou nomeVariavel.toString()
+let numeroTelefone = 4499228855
+console.log("O meu telefone é " + String(numeroTelefone))
+console.log("O meu telefone é " + numeroTelefone.toString())

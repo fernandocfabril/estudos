@@ -1,4 +1,4 @@
-// var (global, hoje em dia não é mais utilizada)
+// var (escopo global, hoje em dia não é mais utilizada)
 
 // var altura = 5
 // var comprimento = 7
@@ -10,7 +10,7 @@
 // var area
 // console.log(area)
 
-// // let (local)
+// // let (escopo local)
 // let forma = "retangulo"
 // let altura = 5
 // let comprimento = 7
@@ -24,7 +24,7 @@
 // console.log(area)
 
 
-// const (constante, não alterar o valor)
+// const (escopo local, constante não alterar o valor)
 // variaveis const devem ser inicializadas com algum valor
 
 const forma = "triangulo"
