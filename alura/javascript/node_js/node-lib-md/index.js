@@ -7,18 +7,35 @@ function trataErro(erro) {
 }
 
 
+function extraiLinks(texto) {
+    const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm
+    /*
+    texto.matchAll(regex) => retorna um object regex iteravel
+    [...texto.matchAll(regex)] => expande/espalha esse objeto e traz as informações necessárias
+     */
+    const capturas = [...texto.matchAll(regex)]
+    /* vamos transformar os dados do array em uma estrutura chave: valor
+    {captura[1]: captura[2]}
+    */
+    const resultados = capturas.map(captura => ({[captura[1]]: captura[2]}))
+    return resultados
+}
+
+
 // FUNÇÃO ASSINCRONA - SEGUNDA FORMA - async/await
 async function pegaArquivo(caminhoArquivo) {
     try {
         const encoding = 'utf-8'
         const texto = await fs.promises.readFile(caminhoArquivo, encoding)
-        console.log(chalk.green(texto))
+        console.log(extraiLinks(texto))
     } catch (erro) {
         trataErro(erro)
     } finally { // é executada sempre, mesmo dando erro
         console.log(chalk.yellow('operação concluida'))
     }
 }
+
+pegaArquivo('./arquivos/texto.md')
 
 
 // // FUNÇÃO ASSINCRONA - PRIMEIRA FORMA
@@ -47,5 +64,10 @@ async function pegaArquivo(caminhoArquivo) {
 //     })
 // }
 
-pegaArquivo('./arquivos/texto.md')
+// pegaArquivo('./arquivos/texto.md')
 //pegaArquivo('./arquivos/')
+
+// Expressão Regular - pega o texto que está entre []
+// \[[^[\]]*?\]
+// \(https?:\/\/[^\s?#.].[^\s]*\)
+// \[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)
