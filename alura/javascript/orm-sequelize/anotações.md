@@ -11,16 +11,6 @@ npm install body-parser
 # instação do mysql no linux
 sudo apt install mysql-server
 
-# iniciar serviço mysql
-sudo service mysql start
-# ver o status do banco de dados
-sudo service mysql status
-# reiniciar serviço mysql
-sudo service mysql restart
-# ver o serviço rodando
-sudo service mysql status
-
-
 # fica escutando todas as alterações que fazemos na API
 # ao salvar as alterações, a aplicação reinicia sozinha
 # instalação do nodemon nas dependencias de desenvolvimento
@@ -81,3 +71,10 @@ npx sequelize-cli seed:generate --name demo-pessoa
 
 # enviar para o banco os dados que estão em seeders (semente)
 npx sequelize-cli db:seed:all
+
+
+# Este comando vai desfazer somente a última migração feita, na ordem em que os arquivos são lidos e executados pelo Sequelize (de acordo com as  datas e horários no nome dos arquivos). Se você tiver rodado 3 migrações - por exemplo, das tabelas Niveis, Turmas e Matriculas, o comando npx sequelize-cli db:migrate:undo vai desfazer apenas Matriculas.
+npx sequelize-cli db:migrate:undo
+
+# revert a migração de dados de seeders (semente)
+npx sequelize-cli db:seed:undo

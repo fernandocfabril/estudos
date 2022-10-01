@@ -3,19 +3,19 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Pessoas', [
+     await queryInterface.bulkInsert('Pessoas', [
       {
-        nome: 'Fernando Carlos Fabril',
+        nome: 'Augusto dos Anjos',
         ativo: true,
-        email: 'fernando@email.com',
-        role: 'estudante',
+        email: 'augusto@sergio.com',
+        role: 'docente',
         createdAt: new Date(),
         updatedAt: new Date()
-      },
+      }
     ], {});
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Pessoas', null, {});
+     await queryInterface.bulkDelete('Pessoas', null, {});
   }
 };

@@ -1,21 +1,22 @@
-import express from 'express'
-import bodyParser from 'body-parser'
+const express = require('express')
+const bodyParser = require('body-parser')
+const routes = require('./routes')
 
 const app = express()
 
-app.use(bodyParser.json())
-
 // numero da porta padrão
 const port = 3000
+
+routes(app)
 
 // rota de teste
 // '/teste' => rota
 // req = requisição/request
 // res = resposta/response
-app.get('/teste', (req, res) => res
-  .status(200)
-  .send({mensagem: 'boas vindas à API'
-}))
+// app.get('/teste', (req, res) => res
+//   .status(200)
+//   .send({mensagem: 'boas vindas à API'
+// }))
 
 // escutando na porta 'port'
 app.listen(port, () => console.log(
@@ -23,6 +24,6 @@ app.listen(port, () => console.log(
   ))
 
 // exportando aplicação
-//module.exports = app
-export default app
+module.exports = app
+//export default app
 
