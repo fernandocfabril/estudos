@@ -3,43 +3,43 @@ module.exports = {
 		return queryInterface.bulkInsert('Matriculas', [
 			{
 				status: "confirmado",
-				id_aluno: 1,
-				id_turma: 1,
+				estudante_id: 32,
+				turma_id: 1,
 				createdAt: new Date(),
 				updatedAt: new Date()
 		},
 		{
 			status: "confirmado",
-			id_aluno: 2,
-			id_turma: 1,
+			estudante_id: 33,
+			turma_id: 1,
 			createdAt: new Date(),
 			updatedAt: new Date()
 	},
 		{
 			status: "confirmado",
-			id_aluno: 3,
-			id_turma: 2,
+			estudante_id: 34,
+			turma_id: 2,
 			createdAt: new Date(),
 			updatedAt: new Date()
 	},
 		{
 			status: "confirmado",
-			id_aluno: 4,
-			id_turma: 3,
+			estudante_id: 35,
+			turma_id: 3,
 			createdAt: new Date(),
 			updatedAt: new Date()
 	},
 		{
 			status: "cancelado",
-			id_aluno: 1,
-			id_turma: 2,
+			estudante_id: 36,
+			turma_id: 2,
 			createdAt: new Date(),
 			updatedAt: new Date()
 	},
 		{
 			status: "cancelado",
-			id_aluno: 2,
-			id_turma: 2,
+			estudante_id: 41,
+			turma_id: 2,
 			createdAt: new Date(),
 			updatedAt: new Date()
 		}

@@ -6,7 +6,9 @@ sudo service mysql status
 sudo service mysql restart
 # ver o serviço rodando
 sudo service mysql status
-
+sudo ss -tap | grep mysql
+# acessar o mysql com o usuário fernando@localhost
+sudo mysql -u fernando@localhost -p
 
 
 # Erro "Public Key Retrieval is not allowed" ao fazer Test Connection no Dbeaver. Como resolver?

@@ -49,6 +49,9 @@ create database escola_ingles;
 # esse comando cria a model e a migration
 npx sequelize-cli model:create --name Pessoas --attributes nome:string,ativo:boolean,email:string,role:string
 
+npx sequelize-cli model:create --name Niveis --attributes descr_nivel:string
+npx sequelize-cli model:create --name Turmas --attributes data_inicio:dateonly
+npx sequelize-cli model:create --name Matriculas --attributes status:string
 
 # documentação mysql tipo de dados
 https://dev.mysql.com/doc/refman/8.0/en/data-types.html
@@ -57,10 +60,6 @@ https://sequelize.org/docs/v6/core-concepts/model-basics/#data-types
 
 # executar a migração
  npx sequelize-cli db:migrate
-# erro na migração
-solução:
-  Eu solucionei isso criando um arquivo package.json dentro da pasta migrations. Dentro desse arquivo, digite apenas a linha { "type": "commonjs" }
-
 
 # inserir dados na tabela Pessoas direto no BD
 insert into Pessoas(nome, ativo, email, role, createdAt, updatedAt) values ("Fernando Fabril", 1, "fernando@email.com", "estudante",
@@ -68,9 +67,17 @@ NOW(), NOW());
 
 # gerar dados através do sequlize seeders (semente)
 npx sequelize-cli seed:generate --name demo-pessoa
+npx sequelize-cli seed:generate --name demo-nivel
+npx sequelize-cli seed:generate --name demo-turmas
+npx sequelize-cli seed:generate --name demo-matriculas
 
-# enviar para o banco os dados que estão em seeders (semente)
+# enviar para o banco os dados que estão em seeders (semente), todos os arquivos
 npx sequelize-cli db:seed:all
+# enviar para o banco os dados que estão em seeders, arquivo individual
+npx sequelize-cli db:seed --seed api/seeders/20220929214359-demo-pessoa.js
+npx sequelize-cli db:seed --seed api/seeders/20221001232150-demo-nivel.js
+npx sequelize-cli db:seed --seed api/seeders/20221001232202-demo-turmas.js
+npx sequelize-cli db:seed --seed api/seeders/20221001232212-demo-matriculas.js
 
 
 # Este comando vai desfazer somente a última migração feita, na ordem em que os arquivos são lidos e executados pelo Sequelize (de acordo com as  datas e horários no nome dos arquivos). Se você tiver rodado 3 migrações - por exemplo, das tabelas Niveis, Turmas e Matriculas, o comando npx sequelize-cli db:migrate:undo vai desfazer apenas Matriculas.
