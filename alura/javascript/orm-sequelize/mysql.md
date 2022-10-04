@@ -14,6 +14,8 @@ sudo mysql -u fernando@localhost -p
 show databases;
 # seleciona uma base de dados: use <database>
 use escola_ingles;
+# mostra as tabelas da base de dados
+show tables;
 
 # Erro "Public Key Retrieval is not allowed" ao fazer Test Connection no Dbeaver. Como resolver?
 # https://cursos.alura.com.br/forum/topico-erro-public-key-retrieval-is-not-allowed-ao-fazer-test-connection-no-dbeaver-como-resolver-137427

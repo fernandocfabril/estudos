@@ -22,7 +22,11 @@ class PessoaController {
           id: Number(id) 
         } 
       })
-      return res.status(200).json(umaPessoa)
+      if (umaPessoa){
+        return res.status(200).json(umaPessoa)
+      } else {
+        return res.status(404).json({messagem: `id ${id} não encontrado ${new Date()}`})
+      }
     } catch (error) {
       return res.status(500).json(error.message)
     }
