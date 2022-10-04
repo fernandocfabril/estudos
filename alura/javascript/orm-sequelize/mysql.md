@@ -10,6 +10,10 @@ sudo ss -tap | grep mysql
 # acessar o mysql com o usuário fernando@localhost
 sudo mysql -u fernando@localhost -p
 
+# mostra as base de dados
+show databases;
+# seleciona uma base de dados: use <database>
+use escola_ingles;
 
 # Erro "Public Key Retrieval is not allowed" ao fazer Test Connection no Dbeaver. Como resolver?
 # https://cursos.alura.com.br/forum/topico-erro-public-key-retrieval-is-not-allowed-ao-fazer-test-connection-no-dbeaver-como-resolver-137427
