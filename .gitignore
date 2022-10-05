@@ -1,4 +1,8 @@
 node_modules
-/alura/javascript/node_js/api_node_lib_md/node_modules
+package-lock.json
+alura/javascript/node_js/node-lib-md/node_modules/
 alura/javascript/node_js/node-lib-md/package-lock.json
+alura/javascript/api_do_zero/node_modules/
+alura/javascript/api_do_zero/package-lock.json
+alura/javascript/orm-sequelize/node_modules/
 alura/javascript/orm-sequelize/package-lock.json

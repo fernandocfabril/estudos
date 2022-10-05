@@ -1,0 +1,7 @@
+Cara, eu já tive esse problema em questão de timezone onde o banco salvava direfente. Uma forma que encontrei foi baixar uma lib, chama date-fns-tz, você pode fazer várias coisas com ela. Utilizei uma função na hora de criar a data de criação de um usuário ai chamo a função do date-fns-tz que o parametro é uma data e o terceiro é uma option que passei o timeZone como America/Sao_Paulo e deu certo. Esse daqui é um exemplo:
+https://github.com/eduahcb/api_jwt/blob/master/src/components/user/user.entity.ts#L52
+https://www.npmjs.com/package/date-fns-tz
+
+Tu deve estar alterando o valor somente na hora de gravar e não na hora de receber o valor.
+Talvez tu precise dar uma olhada no Intl:
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl

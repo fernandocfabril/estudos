@@ -1,4 +1,5 @@
 // desestruturação/espalhamento
+// https://www.youtube.com/watch?v=f8a-qwKC5yk
 
 const numeroPares = [2, 4, 6]
 const numeroImpares = [1, 3, 5]
