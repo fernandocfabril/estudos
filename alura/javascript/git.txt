@@ -1,0 +1,61 @@
+o git init irá basicamente criar um novo repositório, mas localmente
+vc terá que subir ele por comando ainda
+o git clone, irá copiar um repositório criado na nuvem (no caso, o github)
+aí eu prefiro esse fluxo:
+1. Criar repositório no github
+2. Clonar repositório para a máquina
+3. Add meus arquivos / pastas
+4. Criar as branches pelo terminal
+5. Navegar pelas branches pelo terminal
+6. Subir o código pelo terminal
+7. Fazer merge / pull request pelo github
+
+
+# rotina para usar o github no projeto
+$ git checkout -b develop # entra na branck develop
+$ git pull origin develop # sincroniza o repositório remoto com a maquina local
+$ git checkout -b (nomeDaBranch) # cria uma nova branch para fazer as alterações
+
+
+# comitar as alterações no github
+# branch que eu usei para as criações de novas tabelas da SegFy: feat/backDataCotaSegfy
+$ git add .
+$ git commit -m "criado pasta old_migrations"
+$ git push --set-upstream origin <nomeDaBranch>
+
+
+<nomedabranch> = develop
+# cria uma nova branch
+$ git checkout -b <nomedabranch> 
+
+# para add a fila de alterações 
+# "." significa todos os arquivos
+$ git add .  
+
+# comitar essas alterações na nuvem
+$ git commit -m "uma mensagem sobre o commit aqui"
+
+# commit o último comando
+$ git push --set-upstream origin <nomedabranch>
+
+# puxa para sua maquina TODAS branches do repositório
+$ git fetch 
+
+# puxa para sua máquina a versão da nuvem da branch especificada
+$ git pull origin <nomedabranch> 
+
+# geralmente usa bastante o git pull origin develop  para toda vez que for fazer alguma feature nova, ou corrigir bug, estar de acordo com a versão mais atual de desenvolvimento, esse comando é bom rodar direto
+$ git pull origin develop
+
+Observação: a branch de produção (master/main) quase nunca é mexida. ela só puxa da branch develop quando tem algo 
+            pronto para ser colocado em produção
+
+# para cancelar alterações feitas, pode digitar 
+$ git restore <nome do arquivo> 
+
+ou 
+
+# para cancelar todas alterações feitas
+$ git restore . 
+
+git push --set-upstream origin

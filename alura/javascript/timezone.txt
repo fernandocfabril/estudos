@@ -5,3 +5,8 @@ https://www.npmjs.com/package/date-fns-tz
 Tu deve estar alterando o valor somente na hora de gravar e não na hora de receber o valor.
 Talvez tu precise dar uma olhada no Intl:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
+
+
+Hm. Ele tá fazendo o tratamento da data no banco de dados, após a criação, e não na api
+Você pode formatar a data do objeto criado, e retornar ele formatado
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl
