@@ -1,0 +1,5 @@
+Formação Python e orientação a objetos:
+  https://cursos.alura.com.br/formacao-Python-linguagem
+
+Formação Python para Data Science:
+  https://cursos.alura.com.br/formacao-python-data-science
