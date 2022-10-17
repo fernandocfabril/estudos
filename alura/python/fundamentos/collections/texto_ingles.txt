@@ -1,0 +1,21 @@
+I am often faced with explaining the various aspects of Agile to people new to Agile and I have come up with a very simple way to remember (and explain) Agile. I present to you now the “3Ps of Agile Software Development” with the hope you find this useful to your own understanding and an aid in your ability to explain Agile to others.
+
+Philosophy
+
+“The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking.” – Albert Einstein
+
+einsteinAt the core of Agile is the Manifesto. A few years back, I even took the time to create business cards that contained the four values and twelve principles. When I heard people say that this is or is not Agile, I could hand them a card and say, “This is Agile.” This is where I start in explaining (and training) Agile because without the philosophical underpinnings one is most certainly lost. I couldn’t give an exact number, but I do know that a high percentage of companies trying to move to Agile are unable to fully embrace and promote the philosophy behind Agile. I wrote my first book, Understanding The Agile Manifesto: A Brief & Bold Guide to Agile, because I have witnessed firsthand the struggle companies are having with adopting the Agile Manifesto. I have seen companies rewrite the Manifesto to omit or change things that they find too difficult to embody and watched good people punished for having the temerity to post the Manifesto at their workplace. The philosophy is the base upon which the other two Ps rest.
+
+Process
+
+“This strange dichotomy, this agonising gulf between the ought and the is, represents the tragic theme of man’s earthly pilgrimage.” – Martin Luther King
+
+martin luther king jr.It is not enough to have the basic philosophical understanding of Agile, we must find ways to embody the principles. There have been a number of ways to embody this philosophy over the years. Take for example, Scrum. Technically it is a framework, but it contains ceremonies (actions) that allow us to realize the Agile philosophy. Why do we do retrospectives? Because the last of the Agile principles state, “At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.” While Scrum has claimed a high level of mindshare, there are numerous other processes and frameworks that also help organizations embody the philosophy of Agile (Kanban, DSDM, Crystal, etc.). In fact, Agile’s history is one of empiricism with people “uncovering better ways of developing software by doing it.” This means it was actually Process (and the 3rd P) which came first. It is Agile Processes that help us to realize the philosophy of Agile.
+
+Practices
+
+“Practice does not make perfect. Only perfect practice makes perfect.” – Vince Lombardi
+
+lombardiSometimes when we classify things, people can certainly disagree with our classifications, but when I explain the term “Practices” I am referring specifically to software development practices that are done within the processes and frameworks. It is into this category that I would put things like Extreme Programming (XP) practices as well as something like BDD. What separates these things (which could be argued to be processes) is there more technical nature and the needed expertise of software development professionals (developers and QA) to implement. Processes are things that embody the Agile philosophy which any intelligent individual could understand and facilitate. For example, though it might be optimal for a scrum master to have a development background, one could be successful as a scrum master without it. On the other hand, one could not be successful in performing code review or test driven design (TDD) without knowledge of coding. Why do agilests do BDD? Because through BDD we can realize (among others) the principle that states, “Business people and developers must work together daily throughout the project”. It is Agile software development practices which also help us to realize the underlying Agile philosophy.
+
+While any system of classification subject to interpretation, I have found that speaking to the 3Ps of Agile Software Development has provided a simple and understandable way to introduce people to Agile. If you get a chance to present this, please let me know if it helps you as well.
