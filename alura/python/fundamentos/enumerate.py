@@ -29,4 +29,7 @@ for nome, _, _ in usuarios:
     print(nome)
 
 for nome, *args in usuarios:
-    print(nome)
+    print(nome, args)
+
+
+
