@@ -1,0 +1,11 @@
+
+
+- Data e Hora
+    * Deve salvar o momento de um cadastro
+    * Deve retornar data e hora no formato pt-BR
+    * Deve ser capaz de mostrar há quanto tempo um usuário está cadastrado
+
+- CEP
+    * Validação - Deve conter 8 dígitos
+    * Máscara - 99999-999
+    * Acessar WebService ViaCEP e retornar Endereço

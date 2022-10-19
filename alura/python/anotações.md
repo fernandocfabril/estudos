@@ -32,3 +32,11 @@ recebidos_em_atraso = 30
 
 # interpolação de strings
 https://docs.python.org/3/library/string.html#formatexamples
+
+
+# ambiente virtual
+virtualenv.exe venv
+# ativar o ambiente virtual
+virtualenv.exe venv
+# desativar o ambiente virtual
+deactivate

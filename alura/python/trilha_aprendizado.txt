@@ -1,0 +1,11 @@
+https://www.alura.com.br/formacao-Python-linguagem
+https://www.alura.com.br/formacao-flask
+https://www.alura.com.br/formacao-django
+https://www.alura.com.br/formacao-django-rest 
+
+Git
+Docker
+AWS
+
+E foca principalmente na base do Python (https://www.alura.com.br/formacao-Python-linguagem) 
+e em testes unitários
