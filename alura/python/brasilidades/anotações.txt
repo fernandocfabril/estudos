@@ -9,3 +9,10 @@ https://pt.wikipedia.org/wiki/Factory_Method
 https://www.thiengo.com.br/padrao-de-projeto-factory-method
 https://sourcemaking.com/design_patterns/factory_method
 https://python-3-patterns-idioms-test.readthedocs.io/en/latest/Factory.html
+
+
+https://www.alura.com.br/artigos/lidando-com-datas-e-horarios-no-python
+https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
+
+
+https://requests.readthedocs.io/en/latest/
