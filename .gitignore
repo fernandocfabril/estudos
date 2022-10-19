@@ -6,3 +6,7 @@ alura/javascript/api_do_zero/node_modules/
 alura/javascript/api_do_zero/package-lock.json
 alura/javascript/orm-sequelize/node_modules/
 alura/javascript/orm-sequelize/package-lock.json
+__pycache__
+alura/python/brasilidades/__pycache__/
+alura/python/brasilidades/venv/
+alura/python/bytebank_tdd/venv/
