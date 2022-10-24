@@ -1,4 +1,4 @@
-from bytebank import Funcionario 
+from source.bytebank import Funcionario 
 
 # fernando = Funcionario('Fernando Fabril', '20/11/1973', 5000)
 # print(fernando)
