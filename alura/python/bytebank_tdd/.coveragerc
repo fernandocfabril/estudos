@@ -1,0 +1,14 @@
+[run]
+# indica a pasta onde está codigo a ser testado
+# com isso basta executar `pytest --cov`
+source = ./source
+
+[report]
+# indica as linhas que deverão ser excluidas do teste
+exclude_lines =
+    def __str__
+
+[html]
+# indica a pasta onde será gravado os arquivos de relatório ao executar o comento:
+# pytest --cov=source tests --cov-report html
+directory = coverage_report_html
