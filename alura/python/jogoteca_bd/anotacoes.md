@@ -1,20 +1,41 @@
 
-1. criar uma pasta para o seu projeto
+1. Ver se o WSL está iniciado
+    $ wsl -l -v
+
+2. Iniciar wsl
+    $ wsl
+
+3. Ver se o BD Mysql está instalado e iniciado
+    $ sudo service mysql status
+
+4. iniciar serviço mysql
+    $ sudo service mysql start
+
+5. criar uma pasta para o seu projeto
     $ mkdir nome_do_projeto
 
-2. criar um ambiente virutal no python
+6. criar um ambiente virutal no python
     $ python -m venv venv
 
-3. Usando o ambiente virtual
+7. Usando o ambiente virtual
     $ source venv/Scripts/activate
 
-4. Instalar o pacote Flask
+8. Ver a versão do python
+    $ python -version
+
+9. Entrar no vscode na pasta do projeto
+    $ code .
+
+10. Adicionar no arquivo .gitignore as pastas que não devem ser versionadas
+    venv
+
+11. Instalar o pacote Flask
     $ pip install flask
 
-5. Verificar os pacotes instalados
+12. Verificar os pacotes instalados
     $ pip freeze
 
-6. Criar um arquivo de requisitos (requirements.txt),
+13 Criar um arquivo de requisitos (requirements.txt),
     para quando for instalar a app em outra maquina
     $ pip freeze > requirements.txt
 
