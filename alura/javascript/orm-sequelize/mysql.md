@@ -30,3 +30,12 @@ Para usuários do DBeaver:
   Clique com o botão direito na área "propriedades do usuário" e escolha "Adicionar nova propriedade"
   Adicione duas propriedades: "useSSL" e "allowPublicKeyRetrieval"
   Defina seus valores como "false" e "true" clicando duas vezes na coluna "value"
+
+
+## Incluir 2 colunas na tabela Pessoas
+  ALTER TABLE Pessoas ADD COLUMN  created_at DATETIME NOT NULL;
+  ALTER TABLE Pessoas ADD COLUMN  updated_at DATETIME NOT NULL;
+
+## Excluir 2 colunas na tabela Pessoas
+  ALTER TABLE Pessoas DROP COLUMN created_at;
+  ALTER TABLE Pessoas DROP COLUMN updated_at;

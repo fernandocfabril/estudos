@@ -35,11 +35,23 @@
 12. Verificar os pacotes instalados
     $ pip freeze
 
-13 Criar um arquivo de requisitos (requirements.txt),
+13. Criar um arquivo de requisitos (requirements.txt),
     para quando for instalar a app em outra maquina
     $ pip freeze > requirements.txt
 
-7. Instalar a biblioteca do MySql
+14. Acessar o mysql com o usuário fernando@localhost
+    $ sudo mysql -u fernando@localhost -p
+
+15. Listar as base de dasos;
+    mysql> show databases;
+
+16. Entrar na base de dados ("escola_ingles" é uma base de dados)
+    mysql> use escola_ingles
+
+17. Instalar a biblioteca Flask SqlAlchemy
+    $ pip install flask-sqlalchemy
+
+18. Instalar a biblioteca do MySql
     $ pip install mysql-connector-python
 
 8. Instalar a biblioteca Flask SqlAlchemy
