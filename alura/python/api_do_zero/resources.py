@@ -26,6 +26,8 @@ def index():
     
     return my_json
 
+
+# listar todas as Pessas
 @app.route('/api/v1/pessoas', methods = ['GET', ])
 def listar_pessoas():
 
@@ -41,7 +43,9 @@ def listar_pessoas():
             {"pessoas": [pessoa.to_dict() for pessoa in pessoas]}
         )
 
-@app.route('/api/v1/pessoa/<int:id>', methods = ['GET', ])
+
+# buscar os dados de uma Pessoa pelo ID
+@app.route('/api/v1/pessoas/<int:id>', methods = ['GET', ])
 def buscar_pessoa(id):
     pessoa = Pessoas.query.filter_by(id=id).first()
     if not pessoa:
@@ -56,6 +60,8 @@ def buscar_pessoa(id):
             "pessoa": [pessoa.to_dict()]}
     return result
 
+
+# inserir uma nova Pessoa
 @app.route('/api/v1/pessoas', methods = ['POST', ])
 def criar_pessoa():
     
@@ -94,11 +100,14 @@ def criar_pessoa():
 
     return result
 
-@app.route('/api/v1/pessoa/atual/<int:id>', methods = ['PUT', ])
+
+# atualizar os dados de uma Pessoa
+@app.route('/api/v1/pessoas/<int:id>', methods = ['PUT', ])
 def atualizar_pessoa(id):
-    # pega os dados da requição
-    pessoa_alterar = request.get_json()
     try:
+        # pega os dados da requição
+        pessoa_alterar = request.get_json()
+
         # aplica as alterações
         db.session.query(Pessoas).filter(Pessoas.id == id).update(pessoa_alterar, synchronize_session='fetch')
         db.session.flush()
@@ -114,8 +123,39 @@ def atualizar_pessoa(id):
     except Exception as error:
         result = {
             "error": True,
-            "erro_message": str(error),
+            "error_message": str(error),
             "messagem": f'Pessoa {id} erro na atualização.',
+            "pessoa": []
+        }
+
+    return result
+
+
+# deletar uma Pessoa
+@app.route('/api/v1/pessoas/<int:id>', methods = ['DELETE'])
+def deletar_pessoa(id):
+    try:
+        # verificando se existe a pessoa antes de cadastrar
+        pessoa = Pessoas.query.filter_by(id = id).first()
+        if pessoa:
+            db.session.delete(pessoa)
+            db.session.commit()
+            mensagem = f'Pessoa {id} deletada com sucesso.',
+        else:
+            mensagem = f'Pessoa {id} não encontrada.'
+        
+        result = {
+            "error": False,
+            "error_message": "",
+            "messagem": mensagem,
+            "pessoa": []
+        }
+
+    except Exception as error:
+        result = {
+            "error": True,
+            "error_message": str(error),
+            "messagem": f'Pessoa {id} erro na deleção.',
             "pessoa": []
         }
 
