@@ -15,7 +15,7 @@ class BaseModel(db.Model):
   updatedAt = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
 
 
-class Pessoas(BaseModel, SerializerMixin):
+class Pessoa(BaseModel, SerializerMixin):
     __tablename__ = 'Pessoas'
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -26,4 +26,18 @@ class Pessoas(BaseModel, SerializerMixin):
 
     # def __repr__(self):
     #     return '<Name %r' % self.to_dict()
+
+class Nivel(BaseModel, SerializerMixin):
+    __tablename__ = 'Niveis'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    descr_nivel = db.Column(db.String(255), nullable=False)
+
+class Turma(BaseModel, SerializerMixin):
+    __tablename__ = 'Turmas'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    data_inicio = db.Column(db.Date, nullable=True)
+    docente_id = db.Column(db.Integer, db.ForeignKey('Pessoas.id'), nullable=False)
+    nivel_id = db.Column(db.Integer, db.ForeignKey('Niveis.id'), nullable=False)
 

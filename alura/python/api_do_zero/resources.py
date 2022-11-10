@@ -1,6 +1,6 @@
 from app import app, db
 from flask import Flask, request, json, jsonify
-from models import Pessoas
+from models import Pessoa
 from datetime import datetime
 
 
@@ -31,7 +31,7 @@ def index():
 @app.route('/api/v1/pessoas', methods = ['GET', ])
 def listar_pessoas():
 
-    pessoas = Pessoas.query.order_by(Pessoas.nome)
+    pessoas = Pessoa.query.order_by(Pessoa.nome)
     print(type(pessoas))
 
     # my_json = {
@@ -47,7 +47,7 @@ def listar_pessoas():
 # buscar os dados de uma Pessoa pelo ID
 @app.route('/api/v1/pessoas/<int:id>', methods = ['GET', ])
 def buscar_pessoa(id):
-    pessoa = Pessoas.query.filter_by(id=id).first()
+    pessoa = Pessoa.query.filter_by(id=id).first()
     if not pessoa:
         result = {
             "error": True,
@@ -73,7 +73,7 @@ def criar_pessoa():
     role = result.get('role')
 
     # verificando se existe a pessoa antes de cadastrar
-    pessoa = Pessoas.query.filter_by(nome = nome).first()
+    pessoa = Pessoa.query.filter_by(nome = nome).first()
     if not pessoa:
         nova_pessoa = Pessoas(
             nome = nome,
@@ -83,7 +83,7 @@ def criar_pessoa():
         db.session.add(nova_pessoa)
         db.session.commit()
 
-        pessoa = Pessoas.query.filter_by(nome = nome).first()
+        pessoa = Pessoa.query.filter_by(nome = nome).first()
 
         result = {
             "error": False,
@@ -109,11 +109,11 @@ def atualizar_pessoa(id):
         pessoa_alterar = request.get_json()
 
         # aplica as alterações
-        db.session.query(Pessoas).filter(Pessoas.id == id).update(pessoa_alterar, synchronize_session='fetch')
+        db.session.query(Pessoas).filter(Pessoa.id == id).update(pessoa_alterar, synchronize_session='fetch')
         db.session.flush()
         db.session.commit()
         # busca a pessoa já alterada
-        pessoa_alterada = Pessoas.query.filter_by(id = id).first()
+        pessoa_alterada = Pessoa.query.filter_by(id = id).first()
 
         result = {
             "error": False,
@@ -136,7 +136,7 @@ def atualizar_pessoa(id):
 def deletar_pessoa(id):
     try:
         # verificando se existe a pessoa antes de cadastrar
-        pessoa = Pessoas.query.filter_by(id = id).first()
+        pessoa = Pessoa.query.filter_by(id = id).first()
         if pessoa:
             db.session.delete(pessoa)
             db.session.commit()

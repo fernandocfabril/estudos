@@ -29,8 +29,21 @@
 10. Adicionar no arquivo .gitignore as pastas que não devem ser versionadas
     venv
 
-11. Instalar o pacote Flask
-    $ pip install flask
+11. Instalando Bibliotecas:
+    $ pip install flask (flask)
+    $ pip install flask-sqlalchemy (ORM banco de dados)
+    $ pip install SQLAlchemy (ORM banco de dados)
+    $ pip install mysql-connector-python (conexão com o banco de dados MySql)
+    $ pip install Flask-Migrate (migração de dados)
+    $ pip install flask-wtf (validação de formulario)
+    $ pip install flask-bcrypt  (criptografia de senha)
+    $ pip install Flask-RESTful (facilitar a criação de APIs que trabalha com a arquitetura REST)
+    #$ pip install marshmallow
+    $ pip install marshmallow-sqlalchemy
+    $ pip install flask-marshmallow
+    $ pip install PyMySql
+    $ pip install mysqlclient
+
 
 12. Verificar os pacotes instalados
     $ pip freeze
@@ -48,17 +61,19 @@
 16. Entrar na base de dados ("escola_ingles" é uma base de dados)
     mysql> use escola_ingles
 
-17. Instalar a biblioteca Flask SqlAlchemy
-    $ pip install flask-sqlalchemy
+22. Setar a variavel de ambiente Flask
+    $ set FLASK_ENV=development
 
-18. Instalar a biblioteca do MySql
-    $ pip install mysql-connector-python
-
-8. Instalar a biblioteca Flask SqlAlchemy
-    $ pip install flask-sqlalchemy
-
-9. Instalar a biblioteca Flask WTF
-    $ pip install flask-wtf
-
-10. Instalar a biblioteca Flask Bcrypt
-    $ pip install flask-bcrypt
+23. Setar variaveis de ambiente Flask:
+    * FLASK_APP
+        $ export FLASK_APP=app.py
+    * FLASK_ENV (não funciona na versão 2.3)
+        $ export FLASK_ENV=development
+    * TEMPLATES_AUTO_RELOAD
+        $ export TEMPLATES_AUTO_RELOAD=1
+    * FLASK_DEBUG
+        $ export FLASK_DEBUG=1
+    * Executar a aplicação Flask sem precisar criar as variaveis de ambiente acima
+        $ FLASK_APP=app.py FLASK_DEBUG=1 TEMPLATES_AUTO_RELOAD=1 flask run
+    * Executar a aplicação Flask depois de criar as variaveis de ambiente acima
+        $ flask run

@@ -31,3 +31,10 @@ wsl -l -v
 
 # iniciar wsl
 wsl
+
+# Listar as variaveis de ambiente
+printenv
+printenv HOME (ver o conteudo da variavel de ambiente HOME)
+
+# Criar uma variavel de ambiente
+export FLASK_ENV=development
