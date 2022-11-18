@@ -11,3 +11,6 @@ DB = 'api_flask'
 SQLALCHEMY_DATABASE_URI = f'{SGBD}://{USERNAME}:{PASSWORD}@{SERVER}/{DB}'
 # caso altere o modelo, altera também o banco de dados
 SQLALCHEMY_TRACK_MODIFICATIONS = True
+
+# nome que vc da para gerar uma chave secreta através do JWT
+SECRET_KEY="aplicacao_flask"

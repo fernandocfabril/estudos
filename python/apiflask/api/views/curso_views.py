@@ -6,15 +6,22 @@ from flask import request, make_response, jsonify
 # make_response - resposta que vai retornar
 # jsonify - converter os valores para json
 from ..entidades import curso
-from ..services import curso_service
+from ..services import curso_service, formacao_service
+from ..paginate import paginate
+from ..models.curso_model import Curso
+from flask_jwt_extended import jwt_required # exigir o uso de acces token nos metodos
 
 # para cadastrar e listar cursos
 class CursoList(Resource):
+
+    @jwt_required() # exigir o uso de acces token nos metodos
     def get(self):
-        cursos = curso_service.listar_cursos()
+        #cursos = curso_service.listar_cursos()
         cs = curso_schema.CursoSchema(many=True)
-        return make_response(cs.jsonify(cursos), 200)
+        #return make_response(cs.jsonify(cursos), 200)
+        return paginate(Curso, cs)
     
+    @jwt_required() # exigir o uso de acces token nos metodos
     def post(self):
         cs = curso_schema.CursoSchema()
         # executa a validação dos dados
@@ -28,9 +35,21 @@ class CursoList(Resource):
             nome = request.json['nome']
             descricao = request.json['descricao']
             data_publicacao = request.json['data_publicacao']
+            # recuperando a formação da requisição
+            formacao = request.json['formacao']
+            # buscar os dados da formação no banco de dados pelo id passado na requisição
+            # serve para validar se a formação enviada na requisição existe na tabela
+            formacao_curso = formacao_service.listar_formacao_id(formacao)
+            if formacao_curso is None:
+                return make_response(jsonify('Formação não existe'), 404)
 
             # instancia a classe com os dados da requisição
-            novo_curso = curso.Curso(nome=nome, descricao=descricao, data_publicacao=data_publicacao)
+            novo_curso = curso.Curso(
+                nome=nome, 
+                descricao=descricao,
+                data_publicacao=data_publicacao,
+                formacao=formacao_curso
+                )
             # envia para o banco os dados para cadastrar
             resultado = curso_service.cadastrar_curso(novo_curso)
             # transformar o resultado em json
@@ -40,6 +59,8 @@ class CursoList(Resource):
 
 # para listar, alterar e deletar um curso por id
 class CursoDetail(Resource):
+
+    @jwt_required() # exigir o uso de acces token nos metodos
     def get(self, id):
         curso = curso_service.listar_curso_id(id)
         # não encontrou o curso pelo id
@@ -49,6 +70,7 @@ class CursoDetail(Resource):
         cs = curso_schema.CursoSchema()
         return make_response(cs.jsonify(curso), 200)
 
+    @jwt_required() # exigir o uso de acces token nos metodos
     def put(self, id):
         curso_bd = curso_service.listar_curso_id(id)
         if curso_bd is None:
@@ -63,8 +85,22 @@ class CursoDetail(Resource):
             nome = request.json['nome']
             descricao = request.json['descricao']
             data_publicacao = request.json['data_publicacao']
+
+            # recuperando a formação da requisição
+            formacao = request.json['formacao']
+            # buscar os dados da formação no banco de dados pelo id passado na requisição
+            # serve para validar se a formação enviada na requisição existe na tabela
+            formacao_curso = formacao_service.listar_formacao_id(formacao)
+            if formacao_curso is None:
+                return make_response(jsonify('Formação não existe'), 404)
+
             # instancia a classe curso com as novas informações
-            novo_curso = curso.Curso(nome=nome, descricao=descricao, data_publicacao=data_publicacao)
+            novo_curso = curso.Curso(
+                nome=nome, 
+                descricao=descricao, 
+                data_publicacao=data_publicacao,
+                formacao=formacao_curso
+                )
             # chama a função para atualizar
             curso_service.atualiza_curso(curso_bd, novo_curso)
             # busca as informações do curso pelo id para retornar as informações atualizadas
@@ -72,7 +108,7 @@ class CursoDetail(Resource):
             # encontrou o curso
             return make_response(cs.jsonify(curso_atualizado), 200)
 
-
+    @jwt_required() # exigir o uso de acces token nos metodos
     def delete(self, id):
         # seleciona os dados do curso pelo id
         curso_bd = curso_service.listar_curso_id(id)
